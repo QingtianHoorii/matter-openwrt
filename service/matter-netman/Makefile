@@ -71,7 +71,7 @@ define Build/Configure
 	mkdir -p $(OUT_DIR) && cd $(OUT_DIR) && \
 		$(CONFIGURE_VARS) $(PKG_BUILD_DIR)/scripts/configure \
 			--build-env-dir="$(CHIP_BUILD_ENV_DIR)" \
-			--project=examples/lighting-app/linux \
+			--project=examples/chip-tool \
 			--target=$(GNU_TARGET_NAME) \
 			--enable-wifi=no \
 			--enable-openthread=no \
@@ -80,12 +80,12 @@ define Build/Configure
 endef
 
 define Build/Compile
-	$(NINJA) -C $(OUT_DIR) chip-lighting-app
+	$(NINJA) -C $(OUT_DIR) chip-tool
 endef
 
 define Package/matter-netman/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(OUT_DIR)/chip-lighting-app $(1)/usr/sbin
+	$(INSTALL_BIN) $(OUT_DIR)/chip-tool $(1)/usr/sbin
 endef
 
 $(eval $(call BuildPackage,matter-netman))
