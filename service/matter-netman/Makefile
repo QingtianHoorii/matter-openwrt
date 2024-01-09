@@ -71,7 +71,7 @@ define Build/Configure
 	mkdir -p $(OUT_DIR) && cd $(OUT_DIR) && \
 		$(CONFIGURE_VARS) $(PKG_BUILD_DIR)/scripts/configure \
 			--build-env-dir="$(CHIP_BUILD_ENV_DIR)" \
-			--project=examples/chip-tool \
+			--project=examples/lighting-app/linux \
 			--target=$(GNU_TARGET_NAME) \
 			--enable-wifi=no \
 			--enable-openthread=no \
