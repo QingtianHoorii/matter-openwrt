@@ -80,12 +80,12 @@ define Build/Configure
 endef
 
 define Build/Compile
-	$(NINJA) -C $(OUT_DIR) chip-tool-app
+	$(NINJA) -C $(OUT_DIR) chip-lighting-app
 endef
 
 define Package/matter-netman/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(OUT_DIR)/chip-tool-app $(1)/usr/sbin
+	$(INSTALL_BIN) $(OUT_DIR)/chip-lighting-app $(1)/usr/sbin
 endef
 
 $(eval $(call BuildPackage,matter-netman))
